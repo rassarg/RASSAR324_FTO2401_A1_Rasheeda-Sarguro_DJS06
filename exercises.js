@@ -1,11 +1,11 @@
 // A list of provinces:
 const provinces = [
-  " Western Cape",
-  " Gauteng",
-  " Northern Cape",
-  " Eastern Cape",
-  " KwaZulu-Natal",
-  " Free State",
+  "Western Cape",
+  "Gauteng",
+  "Northern Cape",
+  "Eastern Cape",
+  "KwaZulu-Natal",
+  "Free State",
 ];
 
 // A list of names:
@@ -37,7 +37,7 @@ names.forEach((name) => {
 // names.forEach((name) => console.log(`Task 1 - Name: ${name}`));
 
 provinces.forEach((province) => {
-  console.log(`Exercise 1 - Province: ${province}`);
+  console.log(`Exercise 1 - Province:${province}`);
 });
 
 names.forEach((name, index) => {
@@ -58,9 +58,15 @@ const nameAndLengths = names.map((name) => {
 
 /*(4) Sorting: Use sort to alphabetically sort the provinces.*/
 provinces.sort();
-console.log(`${provinces}`);
+console.log(`Exercise 4 - ${provinces}`);
 
 /*(5) Filtering Cape: Use filter to remove provinces containing "Cape". Log the count of remaining provinces. */
+const provincesWithoutCape = provinces.filter(
+  (province) => !province.includes("Cape")
+);
+console.log(
+  `Exercise 5 - Number of provinces without 'Cape' = ${provincesWithoutCape.length}`
+);
 
 /*(6) Finding 'S': Create a boolean array using map and some to determine if a name contains the letter 'S'. */
 
