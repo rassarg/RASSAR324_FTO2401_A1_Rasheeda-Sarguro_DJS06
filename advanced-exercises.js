@@ -31,11 +31,11 @@ const products = [
 // ************************************** ADVANCED EXERCISES ************************************* //
 
 // (1) Log Products: Iterate over the products array, logging each product name
-products.forEach((product) => {
-  console.log(`Advanced Ex 1 - ${product.product}`);
-});
+
+console.log(products.map((product) => product.product));
 
 // (2) Filter by Name Length: Filter out products with names longer than 5 characters
+console.log(names.filter((name) => name.length <= 5));
 
 //(3) Price Manipulation: Filter out products without prices, convert string prices to numbers, and calculate the total price using reduce
 
