@@ -81,8 +81,6 @@ const namesWithS = names.map((name) => name.toLowerCase().includes("s"));
 const nameHasS = namesWithS.some((item) => item);
 console.log(`Exercise 6 -`, names, namesWithS);
 
-//(7) Creating Object Mapping: Use reduce to transform the names array into an object mapping names to their respective provinces. */
+//(7) Creating Object Mapping
 
-// products.forEach((product) => {
-//   console.log(product.product);
-// });
+//Use reduce to transform the names array into an object mapping names to their respective provinces. */
