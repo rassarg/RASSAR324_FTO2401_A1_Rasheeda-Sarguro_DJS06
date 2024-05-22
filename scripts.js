@@ -33,18 +33,23 @@ const products = [
 /*(1) ForEach Basics: Use forEach to log each name and each province to the console. Then, log each name with a matching province in the format "Name (Province)".*/
 
 names.forEach((name) => {
-  console.log(`Name: ${name}`);
+  console.log(`Task 1 - Name: ${name}`);
 });
 
 provinces.forEach((province) => {
-  console.log(`Province: ${province}`);
+  console.log(`Task 1 - Province: ${province}`);
 });
 
 names.forEach((name, index) => {
-  console.log(`Name: ${name} (${provinces[index]})`);
+  console.log(`Task 1 - Name: ${name} (${provinces[index]})`);
 });
 
 /*(2) Uppercase Transformation: Use map to create a new array of province names in all uppercase. Log the new array to the console..*/
+
+const provinceNamesUppercase = provinces.map((province) => {
+  const provinceUpperCase = province.toUpperCase();
+  console.log(`Task 2 - ${provinceUpperCase}`);
+});
 
 /*(3) Name Lengths: Create a new array using map that contains the length of each name. .*/
 
