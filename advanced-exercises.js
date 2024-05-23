@@ -49,7 +49,7 @@ console.log(
 filter() creates a new array with elements that passes a test based on a function
 The function here looks at the length of each product in the products array and checks if it's less than or equal to 5 characters.
 All 'true' results will be added to the new array.
-The map() method iterates over the new array to return an array of the product names
+The map() method creates a new array to return an array of the product names
 */
 
 //(3) Price Manipulation:
