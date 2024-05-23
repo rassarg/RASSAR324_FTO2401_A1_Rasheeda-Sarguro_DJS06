@@ -74,7 +74,25 @@ Lastly, with 0 being the initial value, reduce() reduces the array to a single v
 The total is accumulated by adding product.price to the total
 */
 
-//(4) Concatenate Product Names: Use reduce to concatenate all product names into a single string
+//(4) Concatenate Product Names:
+//Use reduce to concatenate all product names into a single string
+console.log(
+  products
+    // concatenate product names
+    .reduce(
+      (concatenatedNames, product) =>
+        // Append each product name to the concatenated string
+        concatenatedNames + product.product,
+      "" // Initial value for concatenatedNames is an empty string
+    )
+);
+/*
+Using the reduce() method on the products array, the callback function has two parameters:
+concatenatedNames: the accumulator that stores the concatenated string of product names.
+product: Each individual product object being processed in the array.
+"" is the empty string that is the initial value for concatenatedNames.
+The reduce() method iterates through each product in the products array and accumulates all product names into concatenatedNames
+*/
 
 //(5) Find Extremes in Prices: Identify the highest and lowest-priced items, returning a string formatted as "Highest: X. Lowest: Y."
 
