@@ -96,9 +96,33 @@ The reduce() method iterates through each product in the products array and accu
 
 //(5) Find Extremes in Prices:
 //Identify the highest and lowest-priced items, returning a string formatted as "Highest: X. Lowest: Y."
+console.log(
+  (() => {
+    const priceVariants = products.reduce((accumulatorObj, product) => {
+      const parsedPrice = parseInt(product.price);
+      if (!accumulatorObj.highest || parsedPrice > accumulatorObj.highest) {
+        accumulatorObj.highest = parsedPrice;
+      }
+      if (!accumulatorObj.lowest || parsedPrice < accumulatorObj.lowest) {
+        accumulatorObj.lowest = parsedPrice;
+      }
+      return accumulatorObj;
+    }, {});
+
+    return `Highest: ${priceVariants.highest}. Lowest: ${priceVariants.lowest}.`;
+  })()
+);
 
 /*
-
+For this solution, I put the logic into an immediately invoked Function Exp to log the formatted string directly.
+I used the reduce() method to determine the highest and lowest prices in the products array by updating the accumulatorObj based on the conditions provided.
+The reduce() method also initializes with an empty object {} as the initial value.
+parseInt converts the price property of each product object into an integer.
+To get the highest and lowest prices:
+I check if accumulatorObj.highest is undefined or if parsedPrice is greater than the current accumulatorObj.highest value.
+If either condition is true, it updates accumulatorObj.highest to parsedPrice.
+I then check for the lowest price using the same logic.
+Finally the Highest and Lowest values are returned as a string to the console.
 */
 
 //(6) Object Transformation:
@@ -109,7 +133,6 @@ console.log(
     return accumulatorArr;
   }, [])
 );
-
 /*
 Here Object.entries coverts the object in products array into key-value pairs.
 The key is the index: [, 
