@@ -94,6 +94,27 @@ product: Each individual product object being processed in the array.
 The reduce() method iterates through each product in the products array and accumulates all product names into concatenatedNames
 */
 
-//(5) Find Extremes in Prices: Identify the highest and lowest-priced items, returning a string formatted as "Highest: X. Lowest: Y."
+//(5) Find Extremes in Prices:
+//Identify the highest and lowest-priced items, returning a string formatted as "Highest: X. Lowest: Y."
 
-//(6) Object Transformation: Using Object.entries and reduce, recreate the products object with keys 'name' and 'cost', maintaining their original values
+/*
+
+*/
+
+//(6) Object Transformation:
+//Using Object.entries and reduce, recreate the products object with keys 'name' and 'cost', maintaining their original values
+console.log(
+  Object.entries(products).reduce((accumulatorArr, [, { product, price }]) => {
+    accumulatorArr.push({ name: product, cost: price });
+    return accumulatorArr;
+  }, [])
+);
+
+/*
+Here Object.entries coverts the object in products array into key-value pairs.
+The key is the index: [, 
+The value is the object: { product, price }
+The reduce() method iterates over each key-value pair, adding it to an accumulatorArr array, which starts as an empty array.
+In the reduce() function { name: product, cost: price } is created and pushed onto the accumulatorArr array as the new value object.
+The current state of the accumulatorArr is returned after each iteration and added becomes the accumulated result.
+*/
