@@ -53,23 +53,24 @@ console.log(
   products
     // Filter out products without prices
     .filter(
-      (product) => product.price !== "" && !isNaN(parseFloat(product.price))
+      (product) => product.price !== "" && !isNaN(parseInt(product.price))
     )
-    // Convert string prices to numbers
+    // Convert string prices to integers using parseInt()
     .map((product) => ({
       ...product,
-      price: parseFloat(product.price),
+      price: parseInt(product.price),
     }))
     // Calculate the total price using reduce
     .reduce((total, product) => total + product.price, 0)
 );
+
 /*
 I used filter() to create a new array with elements that meet the specified conditions:
 product.price !== "" ensures that price is not an empty string &
-!isNaN(parseFloat(product.price)) checks if product.price can be converted to a number using parseFloat.
+!isNaN(parseInt(product.price)) ensures that product.price can be turned into a valid number.
 map() then creates a new array of the following:
 ...product: Looks at all existing properties of each product
-price: parseFloat(product.price) modifies the price property of each product by converting the price from a string to a number 
+price: parseInt(product.price) ensures all prices are converted into numbers.
 Lastly, with 0 being the initial value, reduce() reduces the array to a single value.to get the total price.
 The total is accumulated by adding product.price to the total
 */
