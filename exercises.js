@@ -33,15 +33,15 @@ const products = [
 //(1) ForEach Basics:
 
 // Log each name to the console
-names.forEach((name) => console.log(`Exercise 1 - Name: ${name}`));
+names.forEach((name) => console.log(`1 - Name: ${name}`));
 
 // Log each province to the console
-provinces.forEach((province) =>
-  console.log(`Exercise 1 - Province: ${province}`)
-);
+provinces.forEach((province) => console.log(`1 - Province: ${province}`));
 
 // Log each name with a matching province in the format "Name (Province)"
-names.forEach((name, index) => console.log(`${name} (${provinces[index]})`));
+names.forEach((name, index) =>
+  console.log(`1 - ${name} (${provinces[index]})`)
+);
 
 //(2) Uppercase Transformation:
 
@@ -49,21 +49,21 @@ names.forEach((name, index) => console.log(`${name} (${provinces[index]})`));
 const provinceNamesUppercase = provinces.map((province) =>
   province.toUpperCase()
 );
-console.log(`Exercise 2 - ${provinceNamesUppercase}`); // Log the new array to the console
+console.log(`2 - ${provinceNamesUppercase}`); // Log the new array to the console
 
 //(3) Name Lengths:
 
 // Create a new array using map that contains the length of each name
 const nameAndLengths = names.map((name) => {
   const nameLengths = name.length;
-  console.log(`Exercise 3 - ${name}: ${nameLengths}`);
+  console.log(`3 - ${name}: ${nameLengths}`);
 });
 
 //(4) Sorting:
 
 // Use sort to alphabetically sort the provinces
 provinces.sort();
-console.log(`Exercise 4 - ${provinces}`);
+console.log(`4 - ${provinces}`);
 
 //(5) Filtering Cape:
 
@@ -73,14 +73,21 @@ const provincesWithoutCape = provinces.filter(
 );
 // Log the count of remaining provinces
 console.log(
-  `Exercise 5 - Number of provinces without 'Cape' = ${provincesWithoutCape.length}`
+  `5 - Number of provinces without 'Cape' = ${provincesWithoutCape.length}`
 );
 
-//(6) Finding 'S': Create a boolean array using map and some to determine if a name contains the letter 'S'
+//(6) Finding 'S':
+
+//Create a boolean array using map and some to determine if a name contains the letter 'S'
 const namesWithS = names.map((name) => name.toLowerCase().includes("s"));
-const nameHasS = namesWithS.some((item) => item);
-console.log(`Exercise 6 -`, names, namesWithS);
+namesWithS.some((item) => item);
+console.log(`6 -`, names, namesWithS);
 
 //(7) Creating Object Mapping
 
-//Use reduce to transform the names array into an object mapping names to their respective provinces.
+//Use reduce to transform the names array into an object mapping names to their respective provinces
+const namesAndProvinces = names.reduce((accumulatorObj, name, index) => {
+  accumulatorObj[name] = provinces[index];
+  return accumulatorObj;
+}, {});
+console.log(`7 -`, namesAndProvinces);
