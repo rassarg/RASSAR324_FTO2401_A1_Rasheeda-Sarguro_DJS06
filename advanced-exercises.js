@@ -31,13 +31,48 @@ const products = [
 // ************************************** ADVANCED EXERCISES ************************************* //
 
 // (1) Log Products: Iterate over the products array, logging each product name
-
 console.log(products.map((product) => product.product));
+/*
+Using the map() method, I created a new array
+This array iterates over each element in the products array.
+For each product object in the array, it returns product.product, which accesses only the product property of each object
+This then becomes the new array, containing only the product names
+*/
 
 // (2) Filter by Name Length: Filter out products with names longer than 5 characters
 console.log(names.filter((name) => name.length <= 5));
+/*
+filter() creates a new array with elements that pass a test based on a function
+The function here looks at the length of each name in the names array and checks if it is less than or equal to 5 characters.
+All 'true' results will be added to the new array.
+*/
 
-//(3) Price Manipulation: Filter out products without prices, convert string prices to numbers, and calculate the total price using reduce
+//(3) Price Manipulation:
+//Filter out products without prices, convert string prices to numbers, and calculate the total price using reduce
+console.log(
+  products
+    // Filter out products without prices
+    .filter(
+      (product) => product.price !== "" && !isNaN(parseFloat(product.price))
+    )
+    // Convert string prices to numbers
+    .map((product) => ({
+      ...product,
+      price: parseFloat(product.price),
+    }))
+    // Calculate the total price using reduce
+    .reduce((total, product) => total + product.price, 0)
+);
+/*
+I used filter() to create a new array with elements that meet the specified conditions:
+product.price !== "" ensures that price is not an empty string &
+!isNaN(parseFloat(product.price)) checks if product.price can be converted to a number using parseFloat.
+map() then creates a new array of the following:
+...product: Looks at all existing properties of each product
+price: parseFloat(product.price) modifies the price property of each product by converting the price from a string to a number 
+Lastly, with 0 being the initial value, reduce() reduces the array to a single value.to get the total price.
+The total is accumulated by adding product.price to the total
+*/
 
 //(4) Concatenate Product Names: Use reduce to concatenate all product names into a single string
 
