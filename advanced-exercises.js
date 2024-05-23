@@ -56,11 +56,11 @@ The map() method creates a new array to return an array of the product names
 //Filter out products without prices, convert string prices to numbers, and calculate the total price using reduce
 console.log(
   products
-    // Filter out products without prices
+    // Filter out products without valid prices
     .filter(
       (product) => product.price !== "" && !isNaN(parseInt(product.price))
     )
-    // Convert string prices to integers using parseInt()
+    // Converts prices to integers using parseInt()
     .map((product) => ({
       ...product,
       price: parseInt(product.price),
@@ -95,7 +95,7 @@ console.log(
 /*
 Using the reduce() method on the products array, the callback function has two parameters:
 concatenatedNames: the accumulator that stores the concatenated string of product names.
-product: Each individual product object being processed in the array.
+product: Each individual product object being processed in the array. I wasn't sure if I was supposed to separate the product names with + " "?
 "" is the empty string that is the initial value for concatenatedNames.
 The reduce() method iterates through each product in the products array and accumulates all product names into concatenatedNames
 */
