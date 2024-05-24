@@ -47,18 +47,16 @@ I then use the same index to log them both
 */
 
 //(2) Uppercase Transformation:
-// Use map to create a new array of province names in all uppercase
 const provinceNamesUppercase = provinces.map((province) =>
   province.toUpperCase()
 );
-console.log(`2 - ${provinceNamesUppercase}`); // Log the new array to the console
+console.log(`2 - ${provinceNamesUppercase}`);
 /*
 map() method returns a new array.
 I applied it to each element in the provinces array, and then converted the new array to all upper case letters.
 */
 
 //(3) Name Lengths:
-// Create a new array using map that contains the length of each name
 names.map((name) => {
   const nameLengths = name.length;
   console.log(`3 - ${name}: ${nameLengths}`);
@@ -69,8 +67,7 @@ name.length checks the length of the 'name' item and stores this in nameLengths
 Finally, I logged both the name and the length to the console.
 */
 
-//(4) Sorting:
-// Use sort to alphabetically sort the provinces
+//(4) Sorting alphabetically:
 provinces.sort();
 console.log(`4 - ${provinces}`);
 /*
@@ -78,7 +75,6 @@ sort() automatically sorts elements in an array alphabetically, which I then log
 */
 
 //(5) Filtering Cape:
-// Use filter to remove provinces containing "Cape"
 const provincesWithoutCape = provinces.filter(
   (province) => !province.includes("Cape")
 );
@@ -94,7 +90,6 @@ And logged the amount of elements without 'Cape'
 */
 
 //(6) Finding 'S':
-//Create a boolean array using map and some to determine if a name contains the letter 'S'
 const namesWithS = names.map((name) => name.toLowerCase().includes("s"));
 namesWithS.some((item) => item);
 console.log(`6 -`, names, namesWithS);
@@ -105,7 +100,6 @@ Then some() is used to check if at least one element in the namesWithS array is 
 */
 
 //(7) Creating Object Mapping
-//Use reduce to transform the names array into an object mapping names to their respective provinces
 const namesAndProvinces = names.reduce((accumulatorObj, nameInArray, index) => {
   accumulatorObj[nameInArray] = provinces[index];
   return accumulatorObj;

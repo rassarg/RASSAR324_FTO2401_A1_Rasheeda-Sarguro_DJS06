@@ -30,7 +30,7 @@ const products = [
 
 // ************************************** ADVANCED EXERCISES ************************************* //
 
-// (1) Log Products: Iterate over the products array, logging each product name
+// (1) Log Products:
 console.log(products.map((product) => product.product));
 /*
 Using the map() method, I created a new array
@@ -39,7 +39,7 @@ For each product object in the array, it returns product.product, which accesses
 This then becomes the new array, containing only the product names
 */
 
-// (2) Filter by Name Length: Filter out products with names longer than 5 characters
+// (2) Filter by Name Length:
 console.log(
   products
     .filter((product) => product.product.length <= 5)
@@ -53,7 +53,6 @@ The map() method creates a new array to return an array of the product names
 */
 
 //(3) Price Manipulation:
-//Filter out products without prices, convert string prices to numbers, and calculate the total price using reduce
 console.log(
   products
     // Filter out products without valid prices
@@ -68,7 +67,6 @@ console.log(
     // Calculate the total price using reduce
     .reduce((total, product) => total + product.price, 0)
 );
-
 /*
 I used filter() to create a new array with elements that meet the specified conditions:
 product.price !== "" ensures that price is not an empty string &
@@ -81,7 +79,6 @@ The total is accumulated by adding product.price to the total
 */
 
 //(4) Concatenate Product Names:
-//Use reduce to concatenate all product names into a single string
 console.log(
   products
     // concatenate product names
@@ -101,7 +98,6 @@ The reduce() method iterates through each product in the products array and accu
 */
 
 //(5) Find Extremes in Prices:
-//Identify the highest and lowest-priced items, returning a string formatted as "Highest: X. Lowest: Y."
 console.log(
   (() => {
     const priceVariants = products.reduce((accumulatorObj, product) => {
@@ -118,7 +114,6 @@ console.log(
     return `Highest: ${priceVariants.highest}. Lowest: ${priceVariants.lowest}.`;
   })()
 );
-
 /*
 For this solution, I put the logic into an immediately invoked Function Exp to log the formatted string directly.
 I used the reduce() method to determine the highest and lowest prices in the products array by updating the accumulatorObj based on the conditions provided.
@@ -132,7 +127,6 @@ Finally the Highest and Lowest values are returned as a string to the console.
 */
 
 //(6) Object Transformation:
-//Using Object.entries and reduce, recreate the products object with keys 'name' and 'cost', maintaining their original values
 console.log(
   Object.entries(products).reduce((accumulatorArr, [, { product, price }]) => {
     accumulatorArr.push({ name: product, cost: price });
